@@ -1,0 +1,108 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #343a40;
+    padding: 20px;
+    transition: transform 0.3s ease; /* Yavaş açılma için geçiş ayarı */
+    transform: translateX(-100%); /* Başlangıçta görünmeyecek */
+    z-index: 2; /* Sidebar'ı ön plana al */
+}
+
+.sidebar.open {
+    transform: translateX(0); /* Açılınca görünür */
+}
+
+.sidebar a {
+    text-decoration: none; /* Alt çizgiyi kaldırır */
+    font-size: 1.2em; /* Yazı fontunu büyütür */
+}
+
+.sidebar a:hover {
+    text-decoration: underline; /* Fare ile üzerine gelindiğinde alt çizgi ekler */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Yarı saydam siyah */
+    z-index: 1; /* Sidebar'ın altında kalması için */
+    display: none; /* Başlangıçta gizli */
+}
+
+.navbar {
+    transition: margin-left 0.3s; /* Navbar için geçiş süresi ayarlandı */
+}
+
+.content {
+    transition: margin-left 0.3s; /* İçerik için geçiş süresi ayarlandı */
+}
+
+.sidebar ul li {
+    margin-bottom: 10px; /* Her li elemanı arasına boşluk ekler */
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center; /* İkonlar ve yazılar aynı yükseklikte hizalanır */
+}
+
+.sidebar ul li a i {
+    width: 30px; /* İkonları sabit bir genişlikte tutarak hizalıyoruz */
+    text-align: center; /* İkonları ortalıyoruz */
+    font-size: 18px; /* İkonların boyutunu ayarladık */
+}
+
+.sidebar ul li a span {
+    flex-grow: 1; /* Yazılar için yer ayırdık */
+    text-align: left; /* Yazılar sola hizalanır */
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 768px) {
+    .sidebar ul li a {
+        font-size: 14px; /* Küçük ekranlarda metin boyutunu küçültür */
+    }
+}
+
+#sidebar {
+    height: 100vh; /* Tam ekran yüksekliğini ayarladık */
+    overflow-y: auto; /* Dikeyde kaydırma çubuğu ekledik */
+    padding-right: 10px; /* Sağ tarafa biraz boşluk vererek kaydırma çubuğunun içeriği kesmemesini sağladık */
+}
+
+#sidebar::-webkit-scrollbar {
+    width: 6px; /* Kaydırma çubuğunun genişliği */
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5); /* Kaydırma çubuğunun rengi */
+    border-radius: 3px; /* Kaydırma çubuğunu yuvarlak yapar */
+}
+
+
+#rezervasyonMenu li a {
+    padding: 8px 15px;
+    display: flex; /* Flexbox kullanarak hizalamayı kolaylaştır */
+    align-items: center; /* Dikey hizalamayı sağlar */
+    color: #ffffff; /* Yazı rengi beyaz */
+}
+
+#rezervasyonMenu li a i {
+    font-size: 0.8rem; /* İkon boyutunu ayarlama */
+    margin-right: 8px; /* İkon ile metin arasındaki boşluk */
+    line-height: 1; /* Satır yüksekliğini ayarlama */
+}
+
+/* Rezervasyon butonuna basıldığında aşağıya doğru inmesi için */
+#rezervasyonToggle {
+    cursor: pointer;
+    margin-top: 0.5rem; /* mt-2 benzeri boşluk (0.5rem) */
+}
+
+
